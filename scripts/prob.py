@@ -33,7 +33,7 @@ plt.xlabel('Year')
 plt.ylabel(r'$P($ get reply $)$')
 
 plt.ylim(0,100)
-plt.savefig("Reply_probabiliy.pdf")
+plt.savefig("Reply_probability.pdf")
 
 
 plt.clf()
@@ -48,7 +48,7 @@ plt.xlabel('Year')
 plt.ylabel(r'$P($ data available $\vert$ get reply $)$')
 
 plt.ylim(0,100)
-plt.savefig("Data_probabiliy.pdf")
+plt.savefig("Data_probability.pdf")
 
 plt.clf()
 
