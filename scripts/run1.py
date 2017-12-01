@@ -39,7 +39,8 @@ key = ["author","year", "title","author-email","author-name", "data"]
 values = []
 for i in range(2013,2014):
     print i
-    with open("../data/"+str(i)+".bib") as bibtex_file:
+    with open("../data/"+"extra"+".bib") as bibtex_file:
+    #with open("../data/"+str(i)+".bib") as bibtex_file:
     #with open("./"+str(i)+"_test"+".bib") as bibtex_file:
 	print "Opened file", "./"+str(i)+"_test"+".bib"
         bibtex_str = bibtex_file.read()
@@ -88,10 +89,10 @@ for i in range(2013,2014):
 		customSubject = subject.replace("<year>",data[k]['year'].encode("utf8"))
 		customSubject = customSubject.replace("<title>",data[k]['title'].encode("utf8"))
 	    
-
 		to = data[k]['author-email']
 		cc = ""
-		bcc = "patrick.diehl@polymtl.ca"
+		bcc = ""
+
 		rcpt = cc.split(",") + bcc.split(",") + [to]
                 msg = MIMEMultipart("alternative")
                 msg['From'] = address
