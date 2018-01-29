@@ -1,3 +1,15 @@
+# Script for sending the second mail 
+#
+# Configuration
+# - config.yaml.example for the smtp connection
+# - text.dat.example for the e-mail's text
+#   The tags inside < > are replaced with the values
+#   of the corresponding attributes in the bibtex
+#   file
+#
+# @author Open Data in Experimental Mechanics
+
+# Packages
 import csv
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
@@ -5,13 +17,17 @@ from email.MIMEText import MIMEText
 import yaml, codecs
 import sys  
 import bibtexparser
+####
 
+# Activate utf8 encoding
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
+# Open the template text of the e-mail
 file = open("text.dat.example",'r')
 plainText = file.read()
 
+# Configuraton of the smtp connection
 username= ""
 server= ""
 password= ""
@@ -21,21 +37,23 @@ subject = ""
 
 print "Starting e-mail sending script"
 
-#with open("config.yaml.example",'r') as f:
-#    doc = yaml.load(f)
-#    username = doc["Mail"]["user"]
-#    server = doc["Mail"]["server"]
-#    password = doc["Mail"]["pw"]
-#    port = int(doc["Mail"]["port"])
-#    address = doc["Mail"]["address"]
-#    subject = doc["Mail"]["subject"]
-#    print "Loading config data for", username, server, port
-    
-#server = smtplib.SMTP(server, port)
-#server.starttls()
-#server.login(username, password)
+# Loading the configuration from the yaml file
+with open("config.yaml.example",'r') as f:
+    doc = yaml.load(f)
+    username = doc["Mail"]["user"]
+    server = doc["Mail"]["server"]
+    password = doc["Mail"]["pw"]
+    port = int(doc["Mail"]["port"])
+    address = doc["Mail"]["address"]
+    subject = doc["Mail"]["subject"]
+    print "Loading config data for", username, server, port
 
+# Start the connection to the server    
+server = smtplib.SMTP(server, port)
+server.starttls()
+server.login(username, password)
 
+# Send mails
 with open('second.csv', 'rb') as csvfile:
      spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
      for row in spamreader:
@@ -70,11 +88,11 @@ with open('second.csv', 'rb') as csvfile:
              
                 text = msg.as_string()
 		
-		#server.sendmail(address, rcpt, text)
-		#print "E-mail sent to " , to
+		server.sendmail(address, rcpt, text)
+		print "E-mail sent to " , to
 		
             
-
-#server.quit()
+# Close the connection
+server.quit()
 
 

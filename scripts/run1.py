@@ -1,16 +1,34 @@
+# Script for reading the bibtex entries, replacing the
+# tags in the template text, and sending the mails to
+# the author
+#
+# Configuration
+# - config.yaml.example for the smtp connection
+# - text.dat.example for the e-mail's text
+#   The tags inside < > are replaced with the values
+#   of the corresponding attributes in the bibtex
+#   file 
+#
+# @author Open Data in Experimental Mechanics
+
+# packages
 import bibtexparser
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 import yaml, codecs
 import sys  
+####
 
+# Activate the utf8 encoding 
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
+# read the template text for the mail's content
 file = open("text.dat",'r')
 plainText = file.read()
 
+# Setting for the smtp connection
 username= ""
 server= ""
 password= ""
@@ -20,6 +38,8 @@ subject = ""
 
 print "Starting e-mail sending script"
 
+# Read the yaml file with the configuration
+# for the connection to the smtp server
 with open("config.yaml",'r') as f:
     doc = yaml.load(f)
     username = doc["Mail"]["user"]
@@ -30,10 +50,13 @@ with open("config.yaml",'r') as f:
     subject = doc["Mail"]["subject"]
     print "Loading config data for", username, server, port
     
+# Connect to the mail server
 server = smtplib.SMTP(server, port)
 server.starttls()
 server.login(username, password)
 
+# read the data from the bibtex file, replace the values in the
+# template text and send e-mail to the author
 data = []
 key = ["author","year", "title","author-email","author-name", "data"]
 values = []
@@ -114,7 +137,7 @@ for i in range(2013,2014):
 		    print "E-mail sent"
 		    print
             
-
+# Close the connection
 server.quit()
 
 
