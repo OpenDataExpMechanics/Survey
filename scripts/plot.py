@@ -34,7 +34,7 @@ plt.xticks(fontsize=11)
 plt.yticks(fontsize=11)
 plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
 plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=12)
+plt.yticks([0,1,2,3])
 plt.tight_layout()
 
 plt.xticks( data['Year'], rotation=35 )
@@ -51,7 +51,7 @@ plt.xticks(fontsize=11)
 plt.yticks(fontsize=11)
 plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
 plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=12)
+plt.ylim(ymax=8)
 
 plt.xticks( data['Year'], rotation=35 )
 
@@ -65,7 +65,7 @@ plt.xticks(fontsize=11)
 plt.yticks(fontsize=11)
 plt.gca().xaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
 plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=12)
+plt.ylim(ymax=6)
 
 plt.xticks( data['Year'], rotation=35 )
 
