@@ -18,70 +18,65 @@ rcParams.update({'figure.autolayout': True})
 rcParams.update({'text.usetex':True})
 ######
 
-# Seaborn setting
-sns.set(color_codes=False)
-sns.set(style="ticks")
-sns.set(font_scale=1.5)
-#####
-
-
 data = pd.read_csv('data.csv')
 
 # Linear regression for the available data sets
 data['Year'] = data['Year'].astype(int)
 data['Data'] = data['Data'].astype(int)
 
-sns.set(style="ticks")
-plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
+sns.set(font_scale=1.5,style="ticks")
 plt.tight_layout()
 
-ticks = np.arange(2000,2017,4)
-plt.xticks( ticks, rotation=35 )
+xticks = np.arange(2000,2017,2)
+yticks = np.arange(min(data['Data']),max(data['Data'])+1,1)
+plt.xticks( xticks, rotation=35 )
+plt.yticks( yticks)
 plt.xlim(1999,2017)
 sns.regplot(x="Year", y="Data", data=data, color='black')
 
-plt.ylabel("Data available")
+plt.ylabel("Number of available data sets")
 plt.savefig("Data_available.pdf")
 
 plt.clf()
 
 # Linear rgeresison for the bounced e-mails
-sns.set(style="ticks")
-plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=8)
+sns.set(font_scale=1.5,style="ticks")
 
-ticks = np.arange(2000,2017,4)
-plt.xticks( ticks, rotation=35 )
+yticks = np.arange(min(data['Bounce']),max(data['Bounce'])+1,1)
+plt.xticks( xticks, rotation=35 )
+plt.yticks( yticks)
 plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="Bounce", data=data, color='black')
+plt.ylabel(r"Number of bounced e-mails")
 plt.savefig("Bounce.pdf")
 
 plt.clf()
 
 #Linear regresison for the replies
-sns.set(style="ticks")
-plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=6)
+sns.set(font_scale=1.5,style="ticks")
 
-ticks = np.arange(2000,2017,4)
-plt.xticks( ticks, rotation=35 )
+yticks = np.arange(min(data['Reply']),max(data['Reply'])+1,1)
+plt.xticks( xticks, rotation=35 )
+plt.yticks ( yticks)
 plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="Reply", data=data, color='black')
-plt.savefig("Reply.pdf")
+plt.ylabel("Number of replies to first or second e-mail")
+plt.savefig(r"Reply.pdf")
 
 plt.clf()
 
 #Linear regression for the non replies
-sns.set(style="ticks")
-plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: int(x)))
-plt.ylim(ymax=12)
+sns.set(font_scale=1.5,style="ticks")
 
-ticks = np.arange(2000,2017,4)
-plt.xticks( ticks, rotation=35 )
+
+yticks = np.arange(min(data['No reply']),max(data['No reply'])+1,1)
+plt.xticks( xticks, rotation=35 )
+plt.yticks ( yticks )
 plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="No reply", data=data, color='black')
+plt.ylabel(r"Number of non replies for working addresses")
 plt.savefig("No_Reply.pdf")
 
