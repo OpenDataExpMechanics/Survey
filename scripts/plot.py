@@ -35,7 +35,7 @@ plt.xlim(1999,2017)
 sns.regplot(x="Year", y="Data", data=data, color='black')
 
 plt.ylabel("Number of available data sets")
-plt.savefig("Data_available.pdf")
+plt.savefig("Data_available.pdf",dpi=800)
 
 plt.clf()
 
@@ -49,7 +49,7 @@ plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="Bounce", data=data, color='black')
 plt.ylabel(r"Number of bounced e-mails")
-plt.savefig("Bounce.pdf")
+plt.savefig("Bounce.pdf",dpi=800)
 
 plt.clf()
 
@@ -62,8 +62,8 @@ plt.yticks ( yticks)
 plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="Reply", data=data, color='black')
-plt.ylabel("Number of replies to first or second e-mail")
-plt.savefig(r"Reply.pdf")
+plt.ylabel("Number of replies to sent e-mail")
+plt.savefig(r"Reply.pdf",dpi=800)
 
 plt.clf()
 
@@ -77,6 +77,6 @@ plt.yticks ( yticks )
 plt.xlim(1999,2017)
 
 sns.regplot(x="Year", y="No reply", data=data, color='black')
-plt.ylabel(r"Number of non replies for working addresses")
-plt.savefig("No_Reply.pdf")
+plt.ylabel(r"Number of non replies")
+plt.savefig("No_Reply.pdf",dpi=800)
 
