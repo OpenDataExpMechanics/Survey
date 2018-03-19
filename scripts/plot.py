@@ -32,7 +32,7 @@ yticks = np.arange(min(data['Data']),max(data['Data'])+1,1)
 plt.xticks( xticks, rotation=35 )
 plt.yticks( yticks)
 plt.xlim(1999,2017)
-sns.regplot(x="Year", y="Data", data=data, color='black')
+sns.regplot(x="Year", y="Data", data=data, color='black',ci=None)
 
 plt.ylabel("Number of available data sets")
 plt.savefig("Data_available.pdf",dpi=800)
@@ -47,7 +47,7 @@ plt.xticks( xticks, rotation=35 )
 plt.yticks( yticks)
 plt.xlim(1999,2017)
 
-sns.regplot(x="Year", y="Bounce", data=data, color='black')
+sns.regplot(x="Year", y="Bounce", data=data, color='black',ci=None)
 plt.ylabel(r"Number of bounced e-mails")
 plt.savefig("Bounce.pdf",dpi=800)
 
@@ -61,7 +61,7 @@ plt.xticks( xticks, rotation=35 )
 plt.yticks ( yticks)
 plt.xlim(1999,2017)
 
-sns.regplot(x="Year", y="Reply", data=data, color='black')
+sns.regplot(x="Year", y="Reply", data=data, color='black',ci=None)
 plt.ylabel("Number of replies to sent e-mail")
 plt.savefig(r"Reply.pdf",dpi=800)
 
@@ -76,7 +76,7 @@ plt.xticks( xticks, rotation=35 )
 plt.yticks ( yticks )
 plt.xlim(1999,2017)
 
-sns.regplot(x="Year", y="No reply", data=data, color='black')
+sns.regplot(x="Year", y="No reply", data=data, color='black',ci=None)
 plt.ylabel(r"Number of non replies")
 plt.savefig("No_Reply.pdf",dpi=800)
 
