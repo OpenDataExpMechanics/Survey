@@ -7,3 +7,9 @@ Experimental data availability is a cornerstone to scientific research. Building
 ## Description of data
 
 In the sub folder [data](https://github.com/OpenDataExpMechanics/Survey/tree/master/data) the 11 articles per year (2000-2016), which were utilized in the study, are stored in the bibtex format. In the folder [data/WoS_export](https://github.com/OpenDataExpMechanics/Survey/tree/master/data/WoS_export) the raw exported from Web of Science is stored.
+
+## Publication
+
+This data set was used in following publication
+
+* P. Diehl, I. Tabiai, F. W. Baumann, D. Therriault, and M. Levesque, Long term availability of raw experimental data in experimental fracture mechanics, Engineering Fracture Mechanics, 197 (2018), pp. 21–26
