@@ -12,4 +12,5 @@ In the sub folder [data](https://github.com/OpenDataExpMechanics/Survey/tree/mas
 
 This data set was used in following publication
 
+* Diehl, Patrick, Ilyass Tabiai, Felix W. Baumann, and Martin Levesque. "Long term availability of raw experimental data in experimental fracture mechanics." arXiv preprint arXiv:1803.07622 (2018). [Link](https://arxiv.org/pdf/1803.07622)
 * P. Diehl, I. Tabiai, F. W. Baumann, D. Therriault, and M. Levesque, Long term availability of raw experimental data in experimental fracture mechanics, Engineering Fracture Mechanics, 197 (2018), pp. 21–26
